@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Ticket — RailYatra</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <header class="site-header">
+
+    <a
+      class="brand"
+      href="dashboard.html"
+      style="color:inherit;text-decoration:none;"
+    >
+
+      <!-- Train Logo -->
+      <img
+        src="images/train-logo.jpg"
+        class="brand-mark"
+        alt="RailYatra Train Logo"
+      >
+
+      <!-- Website Name -->
+      RailYatra
+
+    </a>
+
+
+    <div class="header-actions">
+
+      <div class="theme-toggle">
+
+        <button data-theme-btn="dark">
+          Dark
+        </button>
+
+        <button data-theme-btn="light">
+          Light
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <div class="app-shell">
+
+    <aside class="sidebar">
+
+      <nav>
+
+        <a href="dashboard.html">
+          ▣ Dashboard
+        </a>
+
+        <a href="train-timings.html">
+          🚆 Train Timings
+        </a>
+
+        <a href="history.html">
+          🕘 Booking History
+        </a>
+
+        <div class="divider"></div>
+
+        <a href="#" id="logoutLink">
+          ⎋ Logout
+        </a>
+
+      </nav>
+
+    </aside>
+
+
+    <main class="app-main">
+
+      <div class="page-head">
+
+        <div>
+
+          <h1>
+            Booking Confirmed
+          </h1>
+
+          <p>
+            Your ticket has been generated.
+            Save your PNR for reference.
+          </p>
+
+        </div>
+
+
+        <a
+          href="dashboard.html"
+          class="btn btn-ghost btn-sm"
+        >
+          Go to dashboard
+        </a>
+
+      </div>
+
+
+      <div
+        class="ticket"
+        id="ticket"
+      >
+
+        <div class="ticket-head">
+
+          <div>
+
+            <div
+              style="font-family:var(--font-display);font-weight:700;"
+            >
+              RailYatra E-Ticket
+            </div>
+
+            <div
+              class="pnr"
+              id="ticketPnr"
+            >
+              PNR: —
+            </div>
+
+          </div>
+
+
+          <span
+            class="badge confirmed"
+            id="ticketStatus"
+          >
+            Confirmed
+          </span>
+
+        </div>
+
+
+        <div class="ticket-body">
+
+          <div class="ticket-route">
+
+            <div class="station">
+
+              <div
+                class="time"
+                id="depTime"
+              >
+                --:--
+              </div>
+
+              <div
+                class="name"
+                id="depStation"
+              >
+                Source
+              </div>
+
+            </div>
+
+
+            <div class="line"></div>
+
+
+            <div
+              class="station"
+              style="text-align:right;"
+            >
+
+              <div
+                class="time"
+                id="arrTime"
+              >
+                --:--
+              </div>
+
+              <div
+                class="name"
+                id="arrStation"
+              >
+                Destination
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="ticket-grid">
+
+            <div class="item">
+
+              <div class="k">
+                Train
+              </div>
+
+              <div
+                class="v"
+                id="ticketTrain"
+              >
+                —
+              </div>
+
+            </div>
+
+
+            <div class="item">
+
+              <div class="k">
+                Journey Date
+              </div>
+
+              <div
+                class="v"
+                id="ticketDate"
+              >
+                —
+              </div>
+
+            </div>
+
+
+            <div class="item">
+
+              <div class="k">
+                Class
+              </div>
+
+              <div
+                class="v"
+                id="ticketClass"
+              >
+                —
+              </div>
+
+            </div>
+
+
+            <div class="item">
+
+              <div class="k">
+                Booking ID
+              </div>
+
+              <div
+                class="v"
+                id="ticketBookingId"
+              >
+                —
+              </div>
+
+            </div>
+
+
+            <div class="item">
+
+              <div class="k">
+                Booked On
+              </div>
+
+              <div
+                class="v"
+                id="ticketBookedAt"
+              >
+                —
+              </div>
+
+            </div>
+
+
+            <div class="item">
+
+              <div class="k">
+                Total Fare
+              </div>
+
+              <div
+                class="v"
+                id="ticketFare"
+              >
+                —
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <table class="ticket-passengers">
+
+            <thead>
+
+              <tr>
+                <th>Passenger</th>
+                <th>Age / Gender</th>
+                <th>Coach / Seat</th>
+                <th>Berth Pref.</th>
+              </tr>
+
+            </thead>
+
+
+            <tbody id="ticketPassengers"></tbody>
+
+          </table>
+
+        </div>
+
+
+        <div class="ticket-foot">
+
+          <span
+            style="font-size:0.8rem;color:var(--text-muted);"
+          >
+            This ticket is your journey confirmation —
+            no payment was required.
+          </span>
+
+
+          <div
+            style="display:flex;gap:10px;"
+          >
+
+            <button
+              class="btn btn-outline btn-sm"
+              onclick="window.print()"
+            >
+              Print
+            </button>
+
+
+            <a
+              class="btn btn-primary btn-sm"
+              href="history.html"
+            >
+              View all bookings
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+
+  <script src="js/theme.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ticket.js"></script>
+
+</body>
+
+</html>

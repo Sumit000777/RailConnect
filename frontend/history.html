@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking History — RailYatra</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <header class="site-header">
+
+    <a
+      class="brand"
+      href="dashboard.html"
+      style="color:inherit;text-decoration:none;"
+    >
+
+      <!-- Train Logo -->
+      <img
+        src="images/train-logo.jpg"
+        class="brand-mark"
+        alt="RailYatra Train Logo"
+      >
+
+      <!-- Website Name -->
+      RailYatra
+
+    </a>
+
+
+    <div class="header-actions">
+
+      <div class="theme-toggle">
+
+        <button data-theme-btn="dark">
+          Dark
+        </button>
+
+        <button data-theme-btn="light">
+          Light
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <div class="app-shell">
+
+    <aside class="sidebar">
+
+      <nav>
+
+        <a href="dashboard.html">
+          ▣ Dashboard
+        </a>
+
+        <a href="train-timings.html">
+          🚆 Train Timings
+        </a>
+
+        <a href="history.html" class="active">
+          🕘 Booking History
+        </a>
+
+        <div class="divider"></div>
+
+        <a href="#" id="logoutLink">
+          ⎋ Logout
+        </a>
+
+      </nav>
+
+    </aside>
+
+
+    <main class="app-main">
+
+      <div class="page-head">
+
+        <div>
+
+          <h1>
+            Booking History
+          </h1>
+
+          <p>
+            All tickets you've booked, including cancelled ones.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="panel">
+
+        <table>
+
+          <thead>
+
+            <tr>
+              <th>PNR</th>
+              <th>Train</th>
+              <th>Route</th>
+              <th>Journey Date</th>
+              <th>Class</th>
+              <th>Fare</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+
+          </thead>
+
+
+          <tbody id="historyBody"></tbody>
+
+        </table>
+
+
+        <div
+          class="empty-state"
+          id="historyEmpty"
+          style="display:none;"
+        >
+
+          <div class="glyph">
+            🧾
+          </div>
+
+          You haven't booked any tickets yet.
+
+          <a href="train-timings.html">
+            Search trains
+          </a>
+
+          to get started.
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+
+  <script src="js/theme.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/history.js"></script>
+
+</body>
+
+</html>

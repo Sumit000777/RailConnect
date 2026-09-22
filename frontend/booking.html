@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Ticket — RailYatra</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <header class="site-header">
+
+    <a class="brand" href="dashboard.html" style="color:inherit;text-decoration:none;">
+
+      <!-- Train Logo -->
+      <img
+        src="images/train-logo.jpg"
+        class="brand-mark"
+        alt="RailYatra Train Logo"
+      >
+
+      <!-- Website Name -->
+      RailYatra
+
+    </a>
+
+    <div class="header-actions">
+
+      <div class="theme-toggle">
+        <button data-theme-btn="dark">Dark</button>
+        <button data-theme-btn="light">Light</button>
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <div class="app-shell">
+
+    <aside class="sidebar">
+
+      <nav>
+
+        <a href="dashboard.html">
+          ▣ Dashboard
+        </a>
+
+        <a href="train-timings.html" class="active">
+          🚆 Train Timings
+        </a>
+
+        <a href="history.html">
+          🕘 Booking History
+        </a>
+
+        <div class="divider"></div>
+
+        <a href="#" id="logoutLink">
+          ⎋ Logout
+        </a>
+
+      </nav>
+
+    </aside>
+
+
+    <main class="app-main">
+
+      <div class="page-head">
+
+        <div>
+
+          <h1>
+            Book Your Ticket
+          </h1>
+
+          <p id="trainSummary">
+            Loading train details…
+          </p>
+
+        </div>
+
+        <a
+          href="train-timings.html"
+          class="btn btn-ghost btn-sm"
+        >
+          ← Back to search
+        </a>
+
+      </div>
+
+
+      <div
+        class="form-msg"
+        id="formMsg"
+      ></div>
+
+
+      <div
+        class="grid-2"
+        style="grid-template-columns: 1.6fr 1fr; align-items:start;"
+      >
+
+        <div>
+
+          <div class="panel">
+
+            <div class="panel-head">
+              <h2>
+                Journey details
+              </h2>
+            </div>
+
+            <div class="field-row">
+
+              <div class="field">
+
+                <label for="journeyDate">
+                  Journey date
+                </label>
+
+                <input
+                  type="date"
+                  id="journeyDate"
+                  required
+                />
+
+              </div>
+
+
+              <div class="field">
+
+                <label for="preferredClass">
+                  Class
+                </label>
+
+                <select id="preferredClass"></select>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="panel">
+
+            <div class="panel-head">
+
+              <h2>
+                Passenger details
+              </h2>
+
+              <button
+                type="button"
+                class="btn btn-outline btn-sm"
+                id="addPassenger"
+              >
+                + Add passenger
+              </button>
+
+            </div>
+
+            <div id="passengerList"></div>
+
+          </div>
+
+        </div>
+
+
+        <div class="panel">
+
+          <div class="panel-head">
+            <h2>
+              Booking summary
+            </h2>
+          </div>
+
+          <div class="summary-line">
+            <span>Train</span>
+            <span id="sumTrain">—</span>
+          </div>
+
+          <div class="summary-line">
+            <span>Route</span>
+            <span id="sumRoute">—</span>
+          </div>
+
+          <div class="summary-line">
+            <span>Departure</span>
+            <span id="sumDep">—</span>
+          </div>
+
+          <div class="summary-line">
+            <span>Class</span>
+            <span id="sumClass">—</span>
+          </div>
+
+          <div class="summary-line">
+            <span>Passengers</span>
+            <span id="sumPax">1</span>
+          </div>
+
+          <div class="summary-line">
+            <span>Total fare</span>
+            <span id="sumFare">₹0</span>
+          </div>
+
+          <button
+            class="btn btn-primary btn-block"
+            id="confirmBtn"
+            style="margin-top:18px;"
+          >
+            Confirm Booking
+          </button>
+
+          <p
+            style="font-size:0.78rem;text-align:center;margin-top:10px;"
+          >
+            No online payment required for this booking.
+          </p>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+
+  <template id="passengerTemplate">
+
+    <div class="passenger-card">
+
+      <button
+        type="button"
+        class="btn btn-ghost btn-sm remove-passenger"
+      >
+        ✕
+      </button>
+
+      <div class="field-row">
+
+        <div class="field">
+
+          <label>
+            Full name
+          </label>
+
+          <input
+            type="text"
+            class="pax-name"
+            required
+            placeholder="Passenger name"
+          />
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Age
+          </label>
+
+          <input
+            type="number"
+            class="pax-age"
+            min="1"
+            max="120"
+            required
+            placeholder="Age"
+          />
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Gender
+          </label>
+
+          <select class="pax-gender">
+
+            <option>
+              Male
+            </option>
+
+            <option>
+              Female
+            </option>
+
+            <option>
+              Other
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <div class="field-row-2">
+
+        <div class="field">
+
+          <label>
+            Contact number
+          </label>
+
+          <input
+            type="tel"
+            class="pax-contact"
+            placeholder="Mobile number"
+          />
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Berth preference
+          </label>
+
+          <select class="pax-berth">
+
+            <option>
+              No preference
+            </option>
+
+            <option>
+              Lower
+            </option>
+
+            <option>
+              Middle
+            </option>
+
+            <option>
+              Upper
+            </option>
+
+            <option>
+              Side Lower
+            </option>
+
+            <option>
+              Side Upper
+            </option>
+
+            <option>
+              Window
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </template>
+
+
+  <script src="js/theme.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/booking.js"></script>
+
+</body>
+</html>
